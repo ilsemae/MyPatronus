@@ -1,0 +1,17 @@
+<launch>
+
+	<!-- launch turtlesim and my turtle -->
+	<node pkg="turtlesim" name="turtlesim" type="turtlesim_node"/>
+	<!-- navigate my turtle -->
+	<node pkg="my_patronus" name="my_driver" type="my_driver.py" output="screen" />
+
+	<!-- launch speech gui -->
+	<include file="$(find hlpr_speech_recognition)/launch/speech_rec_w_gui.launch" />
+
+	<!-- launch my patronus turtle and navigate it -->
+	<node pkg="my_patronus" name="angel_driver" type="patronus_driver.py" output="screen" args="angel" />
+
+	<!-- launch my patronus turtle and navigate it -->
+	<node pkg="my_patronus" name="devil_driver" type="patronus_driver.py" output="screen" args="devil" />
+
+</launch>
